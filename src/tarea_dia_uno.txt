@@ -3,6 +3,7 @@ investigar y hacer ejemplo de
 - Array
 - Tuple
 - Enum
+- Object
 - json
 - usar typeof para cada tipo de datos (primitivo y compuestos).
 
