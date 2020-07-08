@@ -1,0 +1,9 @@
+Tarea
+investigar y hacer ejemplo de
+- Array
+- Tuple
+- Enum
+- json
+- usar typeof para cada tipo de datos (primitivo y compuestos).
+
+Entregar en archivo typescript (tarea_dia_uno.ts)
