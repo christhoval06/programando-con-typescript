@@ -1,0 +1,16 @@
+Tarea
+Investigar sobre:
+
+Sentencias de control
+- Sentencia if
+- Sentencia if else
+- Sentencia switch
+
+Cliclos Repetitivos
+- Ciclo for (for of, for in)
+- Ciclo while
+- Ciclo do while
+
+dialogos
+- alert
+- prompt
