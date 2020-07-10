@@ -177,3 +177,28 @@ for (let j: number = 0; j < LIMITE; j++) {
 }
 
 console.table(frutas);
+
+/*
+ * Ciclo for anidado
+ * Almacenar el nombre, la cedula y la edad de los clientes de un juego en linea.
+ */
+
+interface Jugador {
+  nombre: string;
+  cedula: string;
+  edad: number;
+}
+
+// const LIMITE: number = 3;
+const jugadores: Array<Jugador> = [];
+
+for (let i: number = 0; i < LIMITE; i++) {
+  const nombre: string = prompt("Nombre") || "Sin Nombre";
+  const cedula: string = prompt("Cedula") || "Sin Cedula";
+  const edad: number = Number(prompt("Edad") || "0");
+
+  const jugador: Jugador = { nombre, cedula, edad };
+  jugadores.push(jugador);
+}
+
+console.table(jugadores);
