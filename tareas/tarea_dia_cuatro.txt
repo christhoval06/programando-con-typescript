@@ -1,6 +1,0 @@
-Tarea
-Investigar sobre
-
-- Funciones anidadas
-- Funciones recursivas
-- Clausuras o closure
