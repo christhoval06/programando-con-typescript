@@ -1,6 +1,6 @@
-import { performanceChecker } from "./utils/performance";
+import { performanceChecker } from "../src/utils/performance";
 
-import { bank, Customer } from "./data/bank";
+import { bank, Customer } from "../src/data/bank";
 /**
  * Data Transformations
  *
