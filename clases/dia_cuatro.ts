@@ -72,14 +72,172 @@ if (producto) {
 /**
  * Buscar el mayor, el menor, promedio y la distancia de una de las siguente listas
  * 
- 74   10   49   91   60   18   99   23   14   21
- 56   33   90   55    6    5   89    1   85   59
- 54   13   69   84   24   78   25   26   76   58
- 61   28   62   29   98  100   75   45   12   97
-  4   41   87   40   68   15   32   44   73   93
- 94   82   79   64   38   70   83   11   52   80
- 86   16    8   31   43    2   51   20   92   47
- 65   77   88    9   81   53   71   67   50   22
- 35    7   72   37    3   17   95   39   42   36
- 30   46   66   57   27   48   19   96   34   63
+ [
+ [74,   10, ,  49 ,  91,   60  , 18  , 99 ,  23 ,  14  , 21],
+ [56  , 33  , 90 ,  55  ,  6  ,  5  , 89   , 1  , 85 ,  59],
+ [54  , 13  , 69 ,  84  , 24  , 78   25  , 26  , 76  , 58],
+ [61  , 28  , 62 ,  29  , 98 , 100  , 75 ,  45 ,  12 ,  97],
+  [4 ,  41 ,  87 ,  40  , 68  , 15 ,  32 ,  44 ,  73 ,  93],
+ [94 ,  82 ,  79 ,  64  , 38  , 70 ,  83 ,  11  , 52 ,  80],
+ [86 ,  16  ,  8 ,  31  , 43 ,   2 ,  51 ,  20  , 92 ,  47],
+ [65 ,  77  , 88 ,   9  , 81 ,  53 ,  71 ,  67  , 50  , 22],
+ [35 ,   7 ,  72 ,  37 ,   3 ,  17 ,  95 ,  39 ,  42  , 36],
+ [30 ,  46 ,  66 ,  57 ,  27 ,  48 ,  19 ,  96 ,  34 ,  63],
+ ]
  */
+
+// type Result = [number, number, number, number];
+
+const matrix: Array<Array<number>> = [
+  [74, 10, 49, 91, 60, 18, 99, 23, 14, 21],
+  [56, 33, 90, 55, 6, 5, 89, 1, 85, 59],
+  [54, 13, 69, 84, 24, 78, 25, 26, 76, 58],
+  [61, 28, 62, 29, 98, 100, 75, 45, 12, 97],
+  [4, 41, 87, 40, 68, 15, 32, 44, 73, 93],
+  [94, 82, 79, 64, 38, 70, 83, 11, 52, 80],
+  [86, 16, 8, 31, 43, 2, 51, 20, 92, 47],
+  [65, 77, 88, 9, 81, 53, 71, 67, 50, 22],
+  [35, 7, 72, 37, 3, 17, 95, 39, 42, 36],
+  [30, 46, 66, 57, 27, 48, 19, 96, 34, 63]
+];
+
+// const resultados: Array<Result> = [];
+
+// for (let i = 0; i < matrix.length; i++) {
+//     let min: number = matrix[i][0];
+//     let max: number = matrix[i][0];
+//     let promedio: number = 0;
+//     for (let j = 0; j < matrix[i].length; j++) {
+//         if (matrix[i][j] >= max) {
+//             max = matrix[i][j];
+//         }
+//         if (matrix[i][j] <= min) {
+//             min = matrix[i][j];
+//         }
+//         promedio += matrix[i][j];
+//     }
+
+//     const distancia: number = max - min;
+
+//     promedio /= matrix[i].length;
+//     resultados.push([max, min, distancia, promedio]);
+// }
+
+// console.table(resultados);
+
+interface Result {
+  max: number;
+  min: number;
+  distancia: number;
+  promedio: number;
+}
+
+const resultados: Array<Result> = [];
+
+for (let i = 0; i < matrix.length; i++) {
+  const resultado: Result = {
+    min: matrix[i][0],
+    max: matrix[i][0],
+    promedio: 0,
+    distancia: 0
+  };
+
+  for (let j = 0; j < matrix[i].length; j++) {
+    if (matrix[i][j] >= resultado.max) {
+      resultado.max = matrix[i][j];
+    }
+    if (matrix[i][j] <= resultado.min) {
+      resultado.min = matrix[i][j];
+    }
+    resultado.promedio += matrix[i][j];
+  }
+
+  resultado.distancia = resultado.max - resultado.min;
+
+  resultado.promedio /= matrix[i].length;
+
+  resultados.push(resultado);
+}
+
+console.table(resultados);
+
+// Modelando un juego de Fulbol (Interfaces)
+
+enum Posicion {
+  delantero = "delantero",
+  defenza = "defenza",
+  medio = "medio",
+  portero = "portero"
+}
+
+interface Personal {
+  nombre: string;
+  edad: number;
+}
+
+interface Entrenador extends Personal {
+  trofeos: number;
+}
+
+interface Doctor extends Personal {
+  especialidad?: string;
+}
+
+interface Jugador extends Personal {
+  posicion: Posicion;
+}
+
+interface Equipo {
+  nombre: string;
+  jugadores: Array<Jugador>;
+  personal?: Array<Jugador | Entrenador | Doctor>;
+  goles?: number;
+  penales?: number;
+  rojas?: number;
+  amarillas?: number;
+}
+
+interface Partido {
+  local: Equipo;
+  visitante: Equipo;
+  ganador?: Equipo;
+  fecha: string;
+  cancha: string;
+  clasificacion: string;
+}
+
+// Jugadores
+
+const messi: Jugador = {
+  nombre: "Leonel Messi",
+  edad: 33,
+  posicion: Posicion.delantero
+};
+
+const ronaldo: Jugador = {
+  nombre: "Cristiano Ronaldo",
+  edad: 34,
+  posicion: Posicion.medio
+};
+
+const local: Equipo = {
+  nombre: "Barcelona",
+  jugadores: [messi]
+};
+
+const visitante: Equipo = {
+  nombre: "Juventus",
+  jugadores: [ronaldo]
+};
+
+const partido: Partido = {
+  local,
+  visitante,
+  fecha: "hoy",
+  cancha: "Santigo",
+  clasificacion: "final"
+};
+
+console.log(partido.local.nombre, "vs", partido.visitante.nombre);
+console.log("Jugadores", partido.local.nombre);
+console.table(partido.local.jugadores, ["nombre", "edad"]);

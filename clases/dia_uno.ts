@@ -1,4 +1,5 @@
 // Tipos de Datos
+
 /*
  * Datos Primitivos
  */
