@@ -1,4 +1,5 @@
 /**
+ * https://github.com/Mavenic/merchant-guide-to-galaxy
  * merchant guide togalaxy
  You decided to give up on earth after the latest financial collapse left 99.99% of the earth's population with 0.01% of the wealth. 
  Luckily, with the scant sum of money that is left in your account, you are able to afford to rent a spaceship, 
