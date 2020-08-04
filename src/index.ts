@@ -1,15 +1,23 @@
 /**
- * Calcular el factorial de n
- * Ejemplo: 4!
- * n  =  4
- * output = 1 * 2 * 3 * 4 = 24
+ * Modelar un dia de tu vida, usanod interfaces, types y objectos
+ * Ejemplo:
+ * type Comida = string;
+ * type Tiempo = number;
  *
- */
-
-/**
- * Validar si una palabra o frace es un palíndromo
- * Ejemplo: Somos o no somos
- * output = Somos o no somos es un palíndromo
- * Ejemplo: Sobores de mi tierra
- * output = Sobores de mi tierra no es un palíndromo
+ * interface Trabajo {
+ * tiempo: Tiempo
+ * projectos: Array<string>
+ * }
+ *
+ * interface Vida {
+ * dormir: number;
+ * comer: Array<Comida>;
+ * trabajar:...
+ * }
+ *
+ * const miVida: Vida = {
+ * dormir: 5
+ * ....
+ * }
+ *
  */
